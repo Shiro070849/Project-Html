@@ -1,0 +1,228 @@
+body {
+    font-family: "Kanit", sans-serif;
+    padding: 20px;
+    background: #f0f6fb; /* ฟ้าพาสเทลนุ่ม ๆ */
+    color: #1a2a3a;
+}
+
+/* หัวข้อข้อมูล Label:Value */
+.head-A1 {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0, 40, 80, 0.08);
+    margin-bottom: 30px;
+}
+
+.head-A1 div {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.head-A1 .label {
+    width: 200px;
+    font-weight: 600;
+    color: #1e5eaa;
+}
+
+.head-A1 .value {
+    flex: 1;
+    color: #385d8a;
+}
+
+/* ตารางข้อมูลหลัก */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 12px rgba(0, 50, 100, 0.07);
+    border: 1.5px solid #a6c8ff;
+}
+
+/* หัวตาราง */
+th {
+    background: linear-gradient(90deg, #b3d1ff 0%, #8ab6ff 100%);
+    color: #0e2d59;
+    font-weight: 700;
+    padding: 14px 12px;
+    text-align: center;
+    border-bottom: 1.5px solid #6f99d9;
+    border-right: 1px solid #7f9edb;
+    user-select: none;
+}
+
+/* ปิดเส้นขวาสุดหัวตาราง */
+th:last-child {
+    border-right: none;
+}
+
+/* เซลล์ข้อมูล */
+td {
+    padding: 12px 10px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #c9dafc;
+    border-right: 1px solid #c9dafc;
+    color: #1b2d4a;
+    background-color: #f7faff;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ปิดเส้นขวาสุดของแต่ละแถว */
+td:last-child {
+    border-right: none;
+}
+
+/* เซลล์ colspan ชิดซ้าย */
+td[colspan] {
+    text-align: left;
+    font-weight: 600;
+    color: #0e2d59;
+}
+
+/* แถวข้อมูล */
+tbody tr:nth-child(even) td {
+    background-color: #eaf3ff;
+}
+
+/* Hover effect */
+tbody tr:hover td {
+    background-color: #d4e4ff;
+    box-shadow: inset 3px 0 8px rgba(10, 70, 180, 0.2);
+    cursor: pointer;
+}
+
+/* แถวรวมยอด */
+.total-row {
+    background-color: #acc8ff;
+    color: #002855;
+    font-weight: 700;
+}
+
+.total-row .T1 {
+    background-color: #7aabff;
+    color: white;
+    border-right: 1px solid #5f8ce6;
+}
+
+/* Section title */
+.section-title {
+    text-align: center;
+    font-weight: 700;
+    background-color: #c9dfff;
+    color: #00326a;
+    border-bottom: 1.5px solid #7f9edb;
+}
+
+/* มุมมนของหัวตาราง */
+thead tr:first-child th:first-child {
+    border-top-left-radius: 12px;
+}
+
+thead tr:first-child th:last-child {
+    border-top-right-radius: 12px;
+}
+
+/* สรุปท้ายเพจ */
+.summary {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 40px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 45, 90, 0.07);
+    color: #1e4a8e;
+}
+
+.summary strong {
+    color: #0e2d59;
+}
+
+/* Responsive table สำหรับหน้าจอเล็ก */
+@media screen and (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .head-A1 {
+        font-size: 14px;
+    }
+
+    .summary {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal Popup */
+.modal-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    background-color: #f0f8ff;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 70, 160, 0.3);
+    width: 400px;
+    max-width: 90%;
+    padding: 24px 32px;
+    z-index: 1010;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* เปิด popup scale เด้ง */
+.modal-popup.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ปุ่มปิด */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    color: #3366cc;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #003399;
+}
+
+/* เนื้อหาใน popup */
+.modal-content {
+    font-size: 16px;
+    color: #102040;
+    line-height: 1.4;
+}

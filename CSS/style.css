@@ -1,0 +1,25 @@
+.A2 {
+    width: 360px;
+    height: 150px;
+    background-color: blue;
+    margin: 5px;
+}
+.F2 {
+    font-size: 16px;
+    margin: 5px;
+}
+.A3 {
+    width: 250px;
+    height: 250px;
+    border: 20px solid #1875ff;
+    background: #00d0ff;
+}
+.A4 {
+    width: 250px;
+    height: 250px;
+    border: 20px solid #1875ff;
+    background: rgb(145, 7, 19);
+}
+body {
+    font-family: "Kanit", sans-serif;
+}

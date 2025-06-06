@@ -1,0 +1,22 @@
+body {
+    height: 100vh; /* ให้สูงเท่าความสูงหน้าจอ */
+    margin: 0; /* ลบระยะขอบเริ่มต้นที่ browser ใส่มา */
+    
+    /* background-color: burlywood; */
+    background-image: url("https://wpengine.com/wp-content/uploads/2021/05/optimize-images-1024x681.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+
+    /* background: burlywood url("background.jpg") no-repeat center; */
+     
+}
+
+.myBox {
+    width: 500px;
+    height: 200px;
+    background-image: url("/html2/background.jpg");
+    background-size: cover;
+}

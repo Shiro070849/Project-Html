@@ -1,0 +1,57 @@
+body {
+  font-family: 'Kanit', sans-serif;
+  background-color: #fff;
+  margin: 40px;
+}
+
+form {
+  width: 400px;
+  margin: auto;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.form-group {
+  display: flex;
+  margin-bottom: 15px;
+  align-items: flex-start;
+}
+
+label {
+  width: 180px;
+  display: inline-block;
+  text-align: left;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  flex: 1;
+  padding: 4px;
+}
+
+.inline-options {
+  flex: 1;
+}
+
+.form-buttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  width: 80px;
+  margin: 0 5px;
+  padding: 5px;
+}

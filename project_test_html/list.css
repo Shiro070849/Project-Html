@@ -1,0 +1,84 @@
+/* ใช้ฟอนต์ Kanit ทั้งหน้า */
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+    color: #333;
+}
+
+/* จัดระเบียบรายการ */
+ul, ol {
+    margin-left: 40px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+}
+
+/* สไตล์รายการ */
+ul li, ol li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* ลิงก์ */
+a {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #084298;
+}
+
+/* หัวข้อ */
+h1 {
+    margin-top: 30px;
+    color: #2c3e50;
+}
+
+/* ย่อหน้าแสดงสีพื้นหลัง */
+p {
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    color: white;
+    font-weight: 500;
+}
+
+/* mark */
+mark {
+    background-color: #fff176;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* div ธรรมดา */
+div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* div มีสีเหลืองอ่อน */
+div[style*="#fff1a5"] {
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* รูปภาพ */
+img {
+    margin-top: 20px;
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.row {
+    display: flex;
+}

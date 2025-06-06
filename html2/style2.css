@@ -1,0 +1,32 @@
+p {
+    color: blue;
+    text-align: center;
+}
+/* การใช้ class class*/
+.box1 {
+    width: 100px;
+    height: 100px;
+    background: aqua;
+    margin: 10px;
+}
+
+.box2 {
+    width: 100px;
+    height: 100px;
+    background: red;
+    margin: 10px;
+}
+
+.box3 {
+    width: 100px;
+    height: 100px;
+    background: rebeccapurple;
+    margin: 10px;
+}
+
+/* การใช้ id*/
+#mybox {
+    width: 200px;
+    height: 200px;
+    background: #ff0000;
+}

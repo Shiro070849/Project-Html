@@ -1,0 +1,10 @@
+.container {
+    width: 960px;
+    margin: 0px auto;
+}
+
+#myBox {
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+}

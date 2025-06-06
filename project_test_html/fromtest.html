@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form</title>
+  <link rel="stylesheet" href="fromtest.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <form>
+    <fieldset>
+      <legend>Register</legend>
+
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" />
+      </div>
+
+      <div class="form-group">
+        <label for="city">City of<br>Employment:</label>
+        <input type="text" id="city" />
+      </div>
+
+      <div class="form-group">
+        <label for="webserver">Web server:</label>
+        <select id="webserver">
+          <option>-- Choose a server --</option>
+          <option>Text1</option>
+          <option>Text2</option>
+          <option>Text3</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label style="vertical-align: top;">Please specify<br>your role:</label>
+        <div class="inline-options">
+          <input type="radio" name="role" value="Admin" /> Admin<br />
+          <input type="radio" name="role" value="Engineer" /> Engineer<br />
+          <input type="radio" name="role" value="Manager" /> Manager<br />
+          <input type="radio" name="role" value="Guest" /> Guest
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label style="vertical-align: top;">Single Sign-on<br>to the following:</label>
+        <div class="inline-options">
+          <input type="checkbox" name="mail" /> Mail<br />
+          <input type="checkbox" name="payroll" /> Payroll<br />
+          <input type="checkbox" name="selfservice" /> Self-service
+        </div>
+      </div>
+
+      <div class="form-buttons">
+        <input type="submit" value="Login" />
+        <input type="reset" value="Reset" />
+      </div>
+    </fieldset>
+  </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+header, footer {
+    height: 60px;
+    background: #ccc;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    min-height: 300px;
+}
+
+section {
+    flex: 3; /* 60% */
+    background: #ddd;
+    padding: 1rem;
+}
+
+aside {
+    flex: 2; /* 40% */
+    background: rgb(167, 165, 165);
+    padding: 1rem;
+}
+
+footer {
+    background: rgb(27, 168, 27);
+    padding: 1rem;
+    text-align: center;
+}

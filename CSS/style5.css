@@ -1,0 +1,28 @@
+div {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #000, #333);
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+    background-size: 200% 200%;
+}
+
+div:hover {
+    background: linear-gradient(270deg, #ff0080, #7928ca, #2afadf, #ff0080);
+    background-size: 400% 400%;
+    animation: gradientFlow 3s ease infinite;
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
+}
+
+/* Gradient Animation */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

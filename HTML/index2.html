@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>คู่มือ HTML เบื้องต้น</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #2a7ab9;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #1a5d8f;
+    }
+
+    code {
+      background: #eef;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    table, th, td {
+      border: 1px solid #aaa;
+    }
+
+    th {
+      background: #d9ecff;
+      padding: 8px;
+    }
+
+    td {
+      padding: 8px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    ul, ol {
+      padding-left: 25px;
+    }
+
+    form {
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="submit"] {
+      padding: 8px;
+      margin: 5px 0;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      background: #2a7ab9;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background: #1d5c8e;
+    }
+
+    fieldset {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+    }
+
+    legend {
+      font-weight: bold;
+      color: #1a5d8f;
+    }
+
+    a {
+      color: #2a7ab9;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📘 คู่มือ HTML เบื้องต้น</h1>
+    <p>เรียนรู้โครงสร้างและคำสั่งพื้นฐานของ HTML อย่างเข้าใจง่าย</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>📄 โครงสร้างข้อความ</h2>
+      <p><code>p</code> ใช้เขียนข้อความทั่วไปในเว็บ</p>
+      <b><code>b</code> ทำให้ตัวอักษรหนา</b><br>
+      <strong><code>strong</code> ก็ทำให้ตัวหนาเช่นกัน (มีความสำคัญมากขึ้น)</strong><br>
+      <i><code>i</code> ทำให้ตัวอักษรเอียง</i><br>
+      <mark><code>mark</code> ไฮไลต์ข้อความ</mark><br>
+      <small><code>small</code> ตัวอักษรเล็กลง</small><br>
+      <del><code>del</code> ขีดฆ่าข้อความ</del><br>
+      <ins><code>ins</code> ขีดเส้นใต้ข้อความ</ins><br>
+      <sub><code>sub</code> ตัวอักษรเล็กลงและอยู่ข้างล่าง</sub><br>
+      <sup><code>sup</code> ตัวอักษรเล็กลงและอยู่ข้างบน</sup>
+    </div>
+
+    <div class="card">
+      <h2>🔗 การสร้างลิงก์</h2>
+      <p><code>a</code> ใช้สำหรับเชื่อมโยงไปยังหน้าเว็บอื่น</p>
+      <p><code>target="_blank"</code> คือเปิดลิงก์ในแท็บใหม่</p>
+      <a title="Go to ChatGPT" href="https://openai.com/index/chatgpt/" target="_blank">👉 คลิกไปที่ ChatGPT</a>
+    </div>
+
+    <div class="card">
+      <h2>🖼️ การแสดงรูปภาพ</h2>
+      <p><code>img</code> ใช้แสดงภาพโดยกำหนด URL หรือไฟล์ในเครื่อง</p>
+      <a title="Go to Moon" href="https://i.pinimg.com/564x/35/11/f9/3511f98647b0556853396d0f7be58ad3.jpg" target="_blank"><img src="https://i.pinimg.com/564x/35/11/f9/3511f98647b0556853396d0f7be58ad3.jpg" alt="ภาพดวงจันทร์"></a>
+    </div>
+
+    <div class="card">
+      <h2>📊 ตาราง (Table)</h2>
+      <p><code>table</code> ใช้แสดงข้อมูลเป็นแถวและคอลัมน์</p>
+      <table>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Age</th>
+        </tr>
+        <tr>
+          <td>Pilan</td>
+          <td>Kasorn</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Pilan</td>
+          <td>Kasorn</td>
+          <td>18</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>📋 รายการ (Lists)</h2>
+      <p><code>ul</code> คือรายการแบบไม่มีลำดับ (จุดกลม)</p>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+
+      <p><code>ol</code> คือรายการแบบมีลำดับ (ตัวเลข)</p>
+      <ol>
+        <li>เริ่มต้น</li>
+        <li>ฝึกเขียน</li>
+        <li>สร้างโปรเจกต์</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>📝 แบบฟอร์ม (Form)</h2>
+      <form>
+        <fieldset>
+          <legend>ลงทะเบียน</legend>
+
+          <label for="Firstname">Firstname:</label>
+          <input type="text" placeholder="กรอกชื่อ">
+
+          <label for="Lastname">Lastname:</label>
+          <input type="text" placeholder="กรอกนามสกุล">
+
+          <p>เลือกเพศ:</p>
+          <input type="radio" name="gender" value="male"> ชาย
+          <input type="radio" name="gender" value="female"> หญิง
+
+          <p>ความสนใจ:</p>
+          <input type="checkbox" name="checkbox1"> HTML
+          <input type="checkbox" name="checkbox2"> CSS
+          <input type="checkbox" name="checkbox3"> JS
+
+          <input type="submit" value="ส่งข้อมูล">
+        </fieldset>
+      </form>
+    </div>
+
+  </div>
+</body>
+</html>

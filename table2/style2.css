@@ -1,0 +1,54 @@
+body {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      margin: 20px;
+    }
+    h1, h2 {
+      margin: 0;
+      padding: 0;
+    }
+    .header, .section, .table-container {
+      border: 1px solid #000;
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .header td {
+      padding: 3px 5px;
+      vertical-align: top;
+    }
+    .header, .header td {
+        border: none !important;
+    }
+    .title {
+      text-align: right;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .logo {
+      width: 100px;
+    }
+    .section{
+        border: none !important;
+    }
+    .section td {
+      padding: 3px 5px;
+    }
+    table.table-container {
+      width: 100%;
+      border: 1px solid #000;
+    }
+    table.table-container th, table.table-container td {
+      border: 1px solid #000;
+      padding: 4px;
+      text-align: center;
+    }
+    .text-left {
+      text-align: left;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    .small {
+      font-size: 10px;
+    }

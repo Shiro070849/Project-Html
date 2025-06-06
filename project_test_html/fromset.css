@@ -1,0 +1,148 @@
+/* Modern, playful styling for the Register form */
+:root {
+    --primary: #4f46e5;          /* Indigo 600 */
+    --primary-hover: #4338ca;    /* Indigo 700 */
+    --background: #f3f4f6;       /* Gray 100 */
+    --card-bg: #ffffff;          /* White */
+    --input-bg: #f9fafb;         /* Gray 50 */
+    --border: #d1d5db;           /* Gray 300 */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background);
+    font-family: "Kanit", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Card ---- */
+form {
+    width: 100%;
+    max-width: 420px;
+    padding: 1rem;
+}
+
+fieldset {
+    border: none;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative accent */
+fieldset::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary) 0%, #818cf8 100%);
+    top: -160px;
+    left: -10%;
+    transform: rotate(8deg);
+}
+
+legend {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    padding: 0 0.5rem;
+    background: var(--card-bg);
+    z-index: 1;
+}
+
+/* ---- Inputs ---- */
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: #374151; /* Gray 700 */
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--input-bg);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+    outline: none;
+}
+
+/* Layout helpers */
+.F1,
+.L1,
+.L2 {
+    margin-bottom: 1.25rem;
+}
+
+.row,
+.checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    accent-color: var(--primary);
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* ---- Buttons ---- */
+.L3 {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+input[type="submit"] {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: var(--primary);
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* ---- Responsive tweaks ---- */
+@media (max-width: 480px) {
+    fieldset {
+        padding: 1.5rem;
+    }
+}

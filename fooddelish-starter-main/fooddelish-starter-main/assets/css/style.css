@@ -1,0 +1,98 @@
+:root {
+    --yellow: #f6d365;
+    --black: #333333;
+    --white: #ffffff;
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.hamburger {
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+/* Header Section */
+header {
+    height: 800px;
+    background: url(../img/banner-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav {
+    margin: 0 2rem;
+}
+
+
+nav .nav-wrapper {
+    position: relative;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-wrapper .logo {
+    /* logo style */
+}
+
+.nav-wrapper .menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-wrapper .menu li {
+    margin-left: 50px;
+}
+
+.nav-wrapper .menu li a {
+    color: var(--white);
+    text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 3rem 0;
+    }
+
+    nav .nav-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 3rem 0;
+        height: auto;
+    }
+
+    /* ต้องมาก่อนเพื่อให้ .show สามารถ override ได้ */
+    nav .menu {
+        display: none;
+        flex-direction: column;
+    }
+
+    nav .menu.show {
+        display: flex;
+    }
+
+    nav .menu li {
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+}

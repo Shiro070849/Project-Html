@@ -1,0 +1,86 @@
+/* ใช้ฟอนต์ Kanit */
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #f2f2f2;
+    padding: 40px;
+    color: #333;
+}
+
+/* กรอบ fieldset */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+fieldset {
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* หัวเรื่อง */
+legend {
+    font-size: 24px;
+    font-weight: 600;
+    color: #4CAF50;
+    padding: 0 10px;
+}
+
+/* ปรับ layout ช่องกรอกข้อมูล */
+.F1,
+.L1,
+.L2 {
+    margin-bottom: 20px;
+}
+
+/* Label */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* ช่อง input และ select */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Radio และ Checkbox */
+.row,
+.checkbox {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+/* ปุ่ม */
+.L3 {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #388e3c;
+}

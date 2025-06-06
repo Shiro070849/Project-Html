@@ -1,0 +1,176 @@
+<!DOCTYPE html> <!--ccc-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>HTML</title>
+
+    <style>
+        table, th, td{
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+        ul {
+            list-style-type: circle;
+        }
+        #text {
+            font-size: 16px;
+            color: chartreuse;
+        }
+        #text2 {
+            font-size: 16px;
+            color: red;
+        }
+        #text3 {
+            font-size: 16px;
+            color: blueviolet;
+        }
+        #a {
+            color: red;
+        }
+        #b {
+            color: gray;
+        }
+        #c {
+            color: blue;
+        }
+        #d {
+            color: gray;
+        }
+        #e {
+            color: red;
+        }
+        img {
+            width: 500px;
+            height: 400px;
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        
+    </style>
+    
+</head>
+<body>
+    <h1>คำสั่ง html เบื่องต้น </h1>
+    <p>tag p จะเป็นการใส่ข้อความปกติ </p> 
+    <br>
+    <b>ตัวหนาจะใช้ tag b</b> 
+    <br>
+    <strong> tag strong ก็จะเป็นตัวหน้าเหมือนกัน</strong>
+    <br>
+    <i>tag i จะเป็นตัวเอียง</i>
+    <br>
+    <mark>tag mark จะเป็นการ mark ตัวอักษร</mark>
+    <br>
+    <small>tag small จะเป็นการทำตัวอักษรตัวเล็ก</small>
+    <br>
+    <del>tag del จะเป็นการขีดฆ่า</del>
+    <br>
+    <ins>tag ins จะเป็นการขีดเส้นใต้</ins>
+    <br>
+    <sub>tag sub เป็น Text ที่อยู่ข้างล่าง</sub>
+    <sup>tag sup เป็น Text ที่อยู่ข้างบน</sup>
+    <br>
+
+    <!--การลิ้ง-->
+    <br>
+    <br>
+    
+    <ins>การใช้ link</ins>
+    <p>tag a จะเป็นการใช้ คำสั่งลิ้ง tag target จะเป็น การให้กดลิ้งไปที่ไหนเช่น _blank จะเป็นการล้อก target ให้กดแล้วขึ้นแทบใหม่ </p>
+    <a title="go to chatgpt" href="https://openai.com/index/chatgpt/" target="_blank"> Clack to go ChatGpt</a>
+    <br>
+    <p>tag img tag ที่ไว้ใช้ในการใส่รูปภาพ</p>
+    <a title=" go to the Moon" href="https://i.pinimg.com/564x/35/11/f9/3511f98647b0556853396d0f7be58ad3.jpg" target="_blank">
+        <img src="https://i.pinimg.com/564x/35/11/f9/3511f98647b0556853396d0f7be58ad3.jpg" alt="ภาพดวงจัน">
+    </a>
+    <br>
+    <img src="img1.jpg" alt="">
+
+    <!--การใช้ tabel-->
+    <br>
+    <br>
+
+    <b><ins>การใช้ table</ins></b>
+    <br>
+    <table>
+            <!--tr เป็นการกำหนดแถวใน tabel-->
+        <tr> 
+               
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+        </tr>
+
+        <tr>
+            <td id="text">Pilan</td>
+            <td>Kasorn</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>Pilan</td>
+            <td id="text2">Kasorn</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>Pilan</td>
+            <td>Kasorn</td>
+            <td id="text3">18</td>
+        </tr>
+
+    </table>
+    <br>
+    <br>
+
+    <!--การใช้ Lists-->
+    <ins>การใช้ Lists</ins>
+    <!--ul เป็นการlist แบบจุก-->
+    <ul >
+        <li id="a">List item 1</li>
+        <li id="b">List item 2</li>
+        <li id="c">List item 3</li>
+        <li id="d">List item 4</li>
+        <li id="e">List item 4</li>
+    </ul>
+    <!-- ol เป็นการ list ที่เป็นลำดับ-->
+    <ol>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+        <li>List item 4</li>
+    </ol>
+    <br>
+    <br>
+
+    <!--การใช้ from & inputs-->
+    <form >
+        <fieldset>
+            <legend>
+                Register Form
+            </legend>
+
+            <label for="Firstname"> Firstname</label>
+            <input id="aa" type="text" placeholder="Enter your Firstname">
+            <br>
+            <label for="Lastname"> Lastname</label>
+            <input type="text" placeholder="Enter your Lastname">
+            <br>
+            <label for="gender">Select Gender :</label>
+            <br>
+            <input type="radio" name="gender" value="male" checked>Male
+            <input type="radio" name="gender" value="female" checked>Female
+            <br>
+            <input type="checkbox" value="value1" name="checkbox1"> Checkbox1
+            <input type="checkbox" value="value2" name="checkbox2"> Checkbox2
+            <input type="checkbox" value="value3" name="checkbox3"> Checkbox3
+            <br>
+            <input type="submit" value="submit">
+            
+        </fieldset>
+    </form>
+
+
+</body>
+</html>

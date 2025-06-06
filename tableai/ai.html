@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Data Table with Add/Delete</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Kanit', sans-serif;
+      background: #e6f0fa;
+      padding: 20px;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      margin-bottom: 1rem;
+      color: #003366;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* Container */
+    .container {
+      background: white;
+      padding: 20px 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 102, 204, 0.15);
+      max-width: 960px;
+      width: 100%;
+    }
+
+    /* Table Styles */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      box-shadow: inset 0 0 0 1px #a7c7e7;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 15px;
+      user-select: none;
+    }
+    thead {
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
+      color: #e1ecff;
+    }
+    th, td {
+      padding: 12px 15px;
+      border-right: 1px solid #a7c7e7;
+      text-align: center;
+      vertical-align: middle;
+      transition: background-color 0.3s ease;
+      position: relative;
+    }
+    th:last-child, td:last-child {
+      border-right: none;
+    }
+    tbody tr {
+      cursor: pointer;
+      background-color: #f0f6ff;
+      transition: background-color 0.25s ease;
+    }
+    tbody tr:hover {
+      background-color: #d0e2ff;
+      box-shadow: 0 4px 12px rgba(30, 60, 114, 0.2);
+    }
+    tbody tr:active {
+      background-color: #a3bffa;
+      box-shadow: none;
+      transform: scale(0.99);
+      transition: none;
+    }
+    tbody tr.deleted {
+      animation: fadeOut 0.5s forwards;
+    }
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    /* Delete button */
+    .delete-btn {
+      background: #ff4d4f;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      padding: 5px 9px;
+      cursor: pointer;
+      transition: background-color 0.25s ease;
+      user-select: none;
+    }
+    .delete-btn:hover {
+      background: #d9363e;
+    }
+
+    /* Add Button */
+    #addBtn {
+      background: #2a5298;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-bottom: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+    #addBtn:hover {
+      background: #1e3c72;
+    }
+    #addBtn:active {
+      transform: scale(0.97);
+      transition: none;
+    }
+
+    /* Popup overlay */
+    #popupOverlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.45);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    #popupOverlay.active {
+      display: flex;
+    }
+    #popup {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 90%;
+      padding: 20px 25px;
+      animation: popupShow 0.35s ease forwards;
+      user-select: text;
+    }
+    @keyframes popupShow {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      } to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    #popup h2 {
+      margin-top: 0;
+      color: #003366;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    #popup .content {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #444;
+      white-space: pre-wrap;
+    }
+    #popup button.close-btn {
+      margin-top: 20px;
+      display: block;
+      background: #2a5298;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-left: auto;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    #popup button.close-btn:hover {
+      background: #1e3c72;
+    }
+
+    /* Form styles for new data */
+    #newDataForm {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+    #newDataForm input {
+      flex: 1 1 150px;
+      padding: 8px 12px;
+      font-size: 1rem;
+      border: 1.8px solid #a7c7e7;
+      border-radius: 6px;
+      transition: border-color 0.25s ease;
+    }
+    #newDataForm input:focus {
+      border-color: #2a5298;
+      outline: none;
+      box-shadow: 0 0 6px #2a5298aa;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      #newDataForm {
+        flex-direction: column;
+      }
+      #addBtn {
+        width: 100%;
+      }
+      table, th, td {
+        font-size: 0.85rem;
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Product Order Table</h1>
+  <div class="container">
+
+    <form id="newDataForm" aria-label="Add new product data">
+      <input type="text" id="inputName" placeholder="Product Name" required aria-required="true" />
+      <input type="text" id="inputCategory" placeholder="Category" required aria-required="true" />
+      <input type="number" id="inputPrice" placeholder="Price" min="0" step="0.01" required aria-required="true" />
+      <input type="number" id="inputStock" placeholder="Stock" min="0" required aria-required="true" />
+      <button type="submit" id="addBtn" aria-label="Add new product">＋ Add</button>
+    </form>
+
+    <table aria-label="Product order data table" role="grid" id="dataTable">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product</th>
+          <th scope="col">Category</th>
+          <th scope="col">Price</th>
+          <th scope="col">Stock</th>
+          <th scope="col" aria-label="Delete row">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows จะถูกเพิ่มจาก JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Popup แสดงรายละเอียด -->
+  <div id="popupOverlay" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div id="popup">
+      <h2 id="popupTitle">Product Details</h2>
+      <div class="content"></div>
+      <button class="close-btn" aria-label="Close detail popup">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const tableBody = document.querySelector('#dataTable tbody');
+    const popupOverlay = document.getElementById('popupOverlay');
+    const popupContent = popupOverlay.querySelector('.content');
+    const popupCloseBtn = popupOverlay.querySelector('.close-btn');
+
+    // ข้อมูลเริ่มต้น
+    let data = [
+      { name: "RPDTL VM NOCHE IQF", category: "Frozen Food", price: 18.24, stock: 960, detail: 
+`Item Code: FG-04104
+Brand: Member's Mark – Sam’s China
+Packing: 16 x 907.000 g
+Spec: PS-0793`
+      },
+      { name: "Product B", category: "Category B", price: 12.5, stock: 400, detail: "Some details about Product B" },
+      { name: "Product C", category: "Category C", price: 7.75, stock: 1000, detail: "Some details about Product C" }
+    ];
+
+    // สร้างแถวในตารางจากข้อมูล
+    function renderTable() {
+      tableBody.innerHTML = '';
+      data.forEach((item, idx) => {
+        const tr = document.createElement('tr');
+        tr.dataset.index = idx;
+
+        tr.innerHTML = `
+          <td>${idx + 1}</td>
+          <td>${item.name}</td>
+          <td>${item.category}</td>
+          <td>${item.price.toFixed(2)}</td>
+          <td>${item.stock}</td>
+          <td><button class="delete-btn" aria-label="Delete product ${item.name}">🗑️</button></td>
+        `;
+        // เก็บ detail ไว้ใน dataset เพื่อเรียกใช้ popup
+        tr.dataset.detail = item.detail;
+
+        tableBody.appendChild(tr);
+      });
+      attachEvents();
+    }
+
+    // เปิด popup รายละเอียด
+    function openDetailPopup(detailText) {
+      popupContent.textContent = detailText;
+      popupOverlay.classList.add('active');
+    }
+
+    // ปิด popup
+    popupCloseBtn.addEventListener('click', () => {
+      popupOverlay.classList.remove('active');
+    });
+    popupOverlay.addEventListener('click', e => {
+      if (e.target === popupOverlay) popupOverlay.classList.remove('active');
+    });
+
+    // แนบ event ให้แถวและปุ่มลบ
+    function attachEvents() {
+      const rows = tableBody.querySelectorAll('tr');
+      rows.forEach(row => {
+        // คลิกแถวเปิด popup รายละเอียด ยกเว้นถ้ากดปุ่มลบ
+        row.onclick = (e) => {
+          if(e.target.classList.contains('delete-btn')) return;
+          openDetailPopup(row.dataset.detail);
+        };
+
+        // กดปุ่มลบ
+        const deleteBtn = row.querySelector('.delete-btn');
+        deleteBtn.onclick = (e) => {
+          e.stopPropagation();
+          if(confirm(`Are you sure you want to delete "${row.children[1].textContent}"?`)) {
+            const idx = Number(row.dataset.index);
+            data.splice(idx, 1);
+            renderTable();
+          }
+        };
+      });
+    }
+
+    // ฟอร์มเพิ่มข้อมูล
+    const form = document.getElementById('newDataForm');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('inputName').value.trim();
+      const category = document.getElementById('inputCategory').value.trim();
+      const price = parseFloat(document.getElementById('inputPrice').value);
+      const stock = parseInt(document.getElementById('inputStock').value);
+
+      if(name && category && !isNaN(price) && !isNaN(stock)) {
+        // เพิ่มข้อมูลใหม่เข้า data
+        data.push({
+          name,
+          category,
+          price,
+          stock,
+          detail: `Item Code: N/A\nBrand: N/A\nPacking: N/A\nSpec: N/A`
+        });
+
+        renderTable();
+
+        // รีเซ็ตฟอร์ม
+        form.reset();
+      } else {
+        alert('Please fill out all fields with valid values.');
+      }
+    });
+
+    // เริ่มต้น
+    renderTable();
+  </script>
+</body>
+</html>
